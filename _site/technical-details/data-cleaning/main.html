@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.554">
+<meta name="generator" content="quarto-1.5.55">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>DSAN-5000: Project - Data Cleaning</title>
+<title>Data Cleaning – DSAN-5000: Project</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -83,7 +117,7 @@ ul.task-list li input[type="checkbox"] {
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -101,7 +135,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Report</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-technical-details" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-technical-details" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Technical details</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-technical-details">    
@@ -137,7 +171,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -262,6 +296,283 @@ ul.task-list li input[type="checkbox"] {
 <p>If you’re using a package for code organization, you can import it at this point. However, make sure that the <strong>actual workflow steps</strong>—including data processing, analysis, and other key tasks—are conducted and clearly demonstrated on this page. The goal is to show the technical flow of your project, highlighting how the code is executed to achieve your results.</p>
 <p>If relevant, link to additional documentation or external references that explain any complex components. This section should give readers a clear view of how the project is implemented from a technical perspective.</p>
 <p>Remember, this page is a technical narrative, NOT just a notebook with a collection of code cells, include in-line Prose, to describe what is going on.</p>
+<div id="cell-3" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load in necessary packages</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>I first handled the survey data from <strong>Pew Research Center’s American Trends Panel Wave 111</strong>. There was a decently large sample size.</p>
+<div id="cell-5" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in .sav file</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>W111_df <span class="op">=</span> pd.read_spss(<span class="st">"../../data/raw-data/ATP_W111.sav"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#print(W111_df.head())</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Disply data frame shape and column titles</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(W111_df.shape)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(W111_df.columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(6034, 139)
+Index(['QKEY', 'INTERVIEW_START_W111', 'INTERVIEW_END_W111',
+       'DEVICE_TYPE_W111', 'LANG_W111', 'XTABLET_W111', 'SHOP18_W111',
+       'SHOP19_W111', 'METOO1_W111', 'METOOSUPOE_M1_W111',
+       ...
+       'F_PARTYLN_FINAL', 'F_PARTYSUM_FINAL', 'F_PARTYSUMIDEO_FINAL',
+       'F_INC_SDT1', 'F_REG', 'F_IDEO', 'F_INTFREQ', 'F_VOLSUM', 'F_INC_TIER2',
+       'WEIGHT_W111'],
+      dtype='object', length=139)</code></pre>
+</div>
+</div>
+<p>First, I start off by cleaning the whitespace.</p>
+<div id="cell-7" class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Clean and filter  </span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove whitespace from column names     </span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>W111_df.columns <span class="op">=</span> W111_df.columns.<span class="bu">str</span>.strip()</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> col <span class="kw">in</span> W111_df.columns:</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Iterate through each column name and remove the suffix if present</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> col.endswith(<span class="st">"_W111"</span>): <span class="co"># Checks if column title ends with that title</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        new_col_name <span class="op">=</span> col[:<span class="op">-</span><span class="dv">5</span>]  <span class="co"># Remove that part of the name</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        W111_df <span class="op">=</span> W111_df.rename(columns<span class="op">=</span>{col: new_col_name})</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> col.startswith(<span class="st">"F_"</span>):</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        new_col_name <span class="op">=</span> col[<span class="dv">2</span>:]  <span class="co"># Remove the first 2 characters</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>        W111_df <span class="op">=</span> W111_df.rename(columns<span class="op">=</span>{col: new_col_name})</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove whitespace from each row in each column if column data type is string</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> col <span class="kw">in</span> W111_df.columns:</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> W111_df[col].dtype <span class="op">==</span> <span class="st">"object"</span>:</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>        W111_df[col] <span class="op">=</span> W111_df[col].<span class="bu">str</span>.strip()</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>After referring to the survey’s questionnaire document (included …) to see what each feature (column) refers too, I selected the following to look into.</p>
+<div id="cell-9" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>W111_columns_keep <span class="op">=</span> [<span class="st">"ONLSHOP1_a"</span>, <span class="st">"ONLSHOP1_b"</span>, <span class="st">"ONLSHOP1_c"</span>, <span class="st">"SHOP4"</span>, <span class="st">"SNSUSE"</span>, <span class="st">"ONLSHOP5"</span>, <span class="st">"MARITAL"</span>, <span class="st">"USR_SELFID"</span>, <span class="st">"AGECAT"</span>, </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"GENDER"</span>, <span class="st">"EDUCCAT"</span>, <span class="st">"RACECMB"</span>, <span class="st">"INC_SDT1"</span>]</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>W111_df <span class="op">=</span> W111_df[W111_columns_keep]</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># View column data types</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">print</span>(W111_df.dtypes) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>ONLSHOP1_a    category
+ONLSHOP1_b    category
+ONLSHOP1_c    category
+SHOP4         category
+SNSUSE        category
+ONLSHOP5      category
+MARITAL       category
+USR_SELFID    category
+AGECAT        category
+GENDER        category
+EDUCCAT       category
+RACECMB       category
+INC_SDT1      category
+dtype: object
+None</code></pre>
+</div>
+</div>
+<div id="cell-10" class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>W111_df.rename(columns<span class="op">=</span>{<span class="st">'age'</span>: <span class="st">'age_years'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-11" class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check for null values per column</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>null_counts <span class="op">=</span> W111_df.isnull().<span class="bu">sum</span>()</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(null_counts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>ONLSHOP1_a     142
+ONLSHOP1_b     142
+ONLSHOP1_c     142
+SHOP4          142
+SNSUSE         142
+ONLSHOP5      1406
+MARITAL          0
+USR_SELFID       0
+AGECAT           0
+GENDER           0
+EDUCCAT          0
+RACECMB          2
+INC_SDT1         0
+dtype: int64</code></pre>
+</div>
+</div>
+<div id="cell-12" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(W111_df.columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Index(['ONLSHOP1_a', 'ONLSHOP1_b', 'ONLSHOP1_c', 'SHOP4', 'SNSUSE', 'ONLSHOP5',
+       'MARITAL', 'USR_SELFID', 'AGECAT', 'GENDER', 'EDUCCAT', 'RACECMB',
+       'INC_SDT1'],
+      dtype='object')</code></pre>
+</div>
+</div>
+<p>Then I moved on to handling the data from the Consumer Expenditure Survey. We begin with the income data.</p>
+<div id="cell-14" class="cell" data-execution_count="62">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#  Import data for income</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>income_1_df <span class="op">=</span> pd.read_csv(<span class="st">"../../data/raw-data/itii232.csv"</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>income_2_df <span class="op">=</span> pd.read_csv(<span class="st">"../../data/raw-data/itii233.csv"</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>income_3_df <span class="op">=</span> pd.read_csv(<span class="st">"../../data/raw-data/itii234.csv"</span>)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>income_4_df <span class="op">=</span> pd.read_csv(<span class="st">"../../data/raw-data/itii241.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-15" class="cell" data-execution_count="63">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(income_1_df.describe)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;bound method NDFrame.describe of           NEWID  REFMO  REFYR     UCC  PUBFLAG VALUE_  IMPNUM        VALUE
+0       5090604      1   2023  900030        2    NaN       1  3169.833300
+1       5090604      1   2023  900030        2    NaN       2  3169.833300
+2       5090604      1   2023  900030        2    NaN       3  3169.833300
+3       5090604      1   2023  900030        2    NaN       4  3169.833300
+4       5090604      1   2023  900030        2    NaN       5  3169.833300
+...         ...    ...    ...     ...      ...    ...     ...          ...
+330445  5366911      5   2023  980071        2    NaN       1   820.250000
+330446  5366911      5   2023  980071        2    NaN       2   250.000000
+330447  5366911      5   2023  980071        2    NaN       3   100.000000
+330448  5366911      5   2023  980071        2    NaN       4   294.666667
+330449  5366911      5   2023  980071        2    NaN       5   160.250000
+
+[330450 rows x 8 columns]&gt;</code></pre>
+</div>
+</div>
+<p>Now I filter for the relevant columns in the income Data Frames. From the data collection stage, we already know that each of data frames has 8 columns. The variable “NEWID” represent the unique identifier for the survey participant. The values under variable “UCC” indicate certain increases or decreases to the individuals’ net worth. The variable “VALUE” indicate the absolute value of the change in net worth. The other 5 variables only represent data reelvant to the survey process so we subset the Data Frames for those 3 columns.</p>
+<div id="cell-17" class="cell" data-execution_count="64">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>income_columns_keep <span class="op">=</span> [<span class="st">'NEWID'</span>, <span class="st">'UCC'</span>, <span class="st">'VALUE'</span>]</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>income_1_df <span class="op">=</span> income_1_df[income_columns_keep]</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(income_1_df.shape)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>income_2_df <span class="op">=</span> income_2_df[income_columns_keep]</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(income_2_df.shape)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>income_3_df <span class="op">=</span> income_3_df[income_columns_keep]</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(income_3_df.shape)</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>income_4_df <span class="op">=</span> income_4_df[income_columns_keep]</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(income_4_df.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(330450, 3)
+(330840, 3)
+(322320, 3)
+(325200, 3)</code></pre>
+</div>
+</div>
+<p>Next, we want to find the unqiue “UCC” values to see if we have to deal with decreases in net worth.</p>
+<div id="cell-19" class="cell" data-execution_count="65">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize list that stores all unique values of 'UCC' column</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>all_UCC_unique <span class="op">=</span> []</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Function that prints the unique values in a particular column and returns the list</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> find_unique_UCC_values(df, column_name):</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  unique_values <span class="op">=</span> df[column_name].unique()</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> value <span class="kw">in</span> unique_values:</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> value <span class="kw">not</span> <span class="kw">in</span> all_UCC_unique:</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>        all_UCC_unique.append(value)</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>find_unique_UCC_values(income_1_df, <span class="st">'UCC'</span>)</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>find_unique_UCC_values(income_2_df, <span class="st">'UCC'</span>)</span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>find_unique_UCC_values(income_3_df, <span class="st">'UCC'</span>)</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>find_unique_UCC_values(income_4_df, <span class="st">'UCC'</span>)</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(all_UCC_unique)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[900030, 900170, 900180, 980000, 980071, 800940, 900000, 900160, 900150, 900090, 900190, 900200, 900210, 900120, 900140]</code></pre>
+</div>
+</div>
+<p>By referring to the data dictionary, I found that the “UCC” values are mostly associated with increases, except for 800940 which represents deductions for social security. There is some overlap between them. For example, 980071 represent income after taxes. Here I want to only focus on pre-tax income for simplicity’s sake. Therefore we filter for the following: - 900030: Social Security and railroad retirement income - 900170: Retirement, survivors, disability income - 900180: Interest and dividends - 980000: Income before taxes - 800940: Deductions for Social Security - 900150: Food stamps</p>
+<p>The following codes correspond to income that is lumped into 980000: Income before taxes - 900160: Self-employment income - 900000: Wages and salaries - 900090: Supplemental security income - 900190: Net room/rental income - 900200: Royalty, estate, trust income - 900210: Other regular income - 900140: Other income</p>
+<div id="cell-21" class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>income_df_UCC_keep <span class="op">=</span> [<span class="dv">900030</span>, <span class="dv">900170</span>, <span class="dv">900180</span>, <span class="dv">980000</span>, <span class="dv">800940</span>, <span class="dv">900150</span>]</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>negation_UCC_value <span class="op">=</span> <span class="dv">800940</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to filter for the 'UCC' values we want and negate if UCC = 800940</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> filter_and_negate(df, negation_ucc):</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Filter the DataFrame based on the UCC list</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  filtered_df <span class="op">=</span> df[df[<span class="st">'UCC'</span>].isin(income_df_UCC_keep)]</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Negate the 'VALUE' column for the specific UCC</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>  filtered_df.loc[filtered_df[<span class="st">'UCC'</span>] <span class="op">==</span> negation_ucc, <span class="st">'VALUE'</span>] <span class="op">*=</span> <span class="op">-</span><span class="dv">1</span></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> filtered_df</span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply the function to the data frames and check the shape </span></span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>income_1_df <span class="op">=</span> filter_and_negate(income_1_df, negation_UCC_value)</span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(income_1_df.shape)</span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>income_2_df <span class="op">=</span> filter_and_negate(income_2_df, negation_UCC_value)</span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(income_2_df.shape)</span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>income_3_df <span class="op">=</span> filter_and_negate(income_3_df, negation_UCC_value)</span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(income_3_df.shape)</span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a>income_4_df <span class="op">=</span> filter_and_negate(income_4_df, negation_UCC_value)</span>
+<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(income_4_df.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(182790, 3)
+(182475, 3)
+(178470, 3)
+(179925, 3)</code></pre>
+</div>
+</div>
+<div id="cell-22" class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Function sums income sources based on participant ID </span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calculate_total_income(df):</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co">#use reset_index to make a hierarchical index a regular column</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  total_income_df <span class="op">=</span> df.groupby(<span class="st">'NEWID'</span>)[<span class="st">'VALUE'</span>].<span class="bu">sum</span>().reset_index() </span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Rename columns in place</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  total_income_df.columns <span class="op">=</span> [<span class="st">'id'</span>, <span class="st">'total_income'</span>]</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> total_income_df</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate total income for each DataFrame</span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>total_income_df1 <span class="op">=</span> calculate_total_income(income_1_df)</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>total_income_df2 <span class="op">=</span> calculate_total_income(income_2_df)</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>total_income_df3 <span class="op">=</span> calculate_total_income(income_3_df)</span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>total_income_df4 <span class="op">=</span> calculate_total_income(income_4_df)</span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Concatenate dataframes to get total income per survey participant</span></span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>total_income_df <span class="op">=</span> pd.concat([total_income_df1, total_income_df2, total_income_df3, total_income_df4], axis <span class="op">=</span> <span class="dv">0</span>)</span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a><span class="co">#DF of income over a year</span></span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(total_income_df.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(18829, 2)</code></pre>
+</div>
+</div>
+<div id="cell-23" class="cell" data-execution_count="70">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(total_income_df.head)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;bound method NDFrame.head of            id  total_income
+0     5090604   101692.5000
+1     5090624    34467.5010
+2     5090634   155839.9995
+3     5090664    72695.0001
+4     5090674    43196.2500
+...       ...           ...
+4675  5607961   130770.0000
+4676  5607981   364462.6290
+4677  5608001    84775.0005
+4678  5608051   486724.8864
+4679  5608061    65240.0010
+
+[18829 rows x 2 columns]&gt;</code></pre>
+</div>
+</div>
+<p>Now we handle the expenditures data.</p>
+<div id="cell-25" class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">#  Import data for expenses</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>expense_1_df <span class="op">=</span> pd.read_csv(<span class="st">"../../data/raw-data/mtbi232.csv"</span>)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>expense_2_df <span class="op">=</span> pd.read_csv(<span class="st">"../../data/raw-data/mtbi233.csv"</span>)</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>expense_3_df <span class="op">=</span> pd.read_csv(<span class="st">"../../data/raw-data/mtbi234.csv"</span>)</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>expense_4_df <span class="op">=</span> pd.read_csv(<span class="st">"../../data/raw-data/mtbi241.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[]</code></pre>
+</div>
+</div>
 
 
 </section>
@@ -302,18 +613,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -345,7 +645,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -353,7 +675,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

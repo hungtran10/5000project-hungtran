@@ -14,7 +14,8 @@ LLM tools were used in the following way for the tasks below
 
 * Reformating text from bulleted lists into proses 
 * Proofreading
-* Text summarization for literature review 
+* Text summarization for literature review of the following research papers
+  * "Exploring the choice between in-store and online shopping" by Schmid, Schmutz and Axhausen
 
 ## Code: 
 

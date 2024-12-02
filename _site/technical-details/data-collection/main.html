@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.554">
+<meta name="generator" content="quarto-1.5.55">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>DSAN-5000: Project - Data Collection</title>
+<title>Data Collection – DSAN-5000: Project</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -117,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -135,7 +135,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Report</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-technical-details" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-technical-details" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Technical details</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-technical-details">    
@@ -171,7 +171,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -322,6 +322,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Objectives</strong>: Outline the specific outcomes you aim to achieve, whether it’s implementing a solution, analyzing data, or building a model.</li>
 </ul>
 <p>This overview should give technical staff a clear understanding of the context and importance of the work, while guiding them on what to focus on in the details that follow.</p>
+<p><strong>Data Sources</strong> 1. Source 1: Survey data from American Trends Panel Wave 111 conducted by the Pew Research Center. It can be accessed at the URL: https://www.pewresearch.org/dataset/american-trends-panel-wave-111/.<br>
+This is tabular data under the file name “ATP W111.sav”. 2. Source 2: Public use microdata (2023) from Consumer Expenditure Survey Data from the U.S. Bureau of Labor Statistics. The 2023 data can be accessed at the URL: https://www.bls.gov/cex/pumd_data.htm#csv.</p>
 </section>
 <section id="methods" class="level1">
 <h1>Methods</h1>
@@ -334,48 +336,241 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>If you’re using a package for code organization, you can import it at this point. However, make sure that the <strong>actual workflow steps</strong>—including data processing, analysis, and other key tasks—are conducted and clearly demonstrated on this page. The goal is to show the technical flow of your project, highlighting how the code is executed to achieve your results.</p>
 <p>Ensure that the code is well-commented to enhance readability and understanding for others who may review or use it. If relevant, link to additional documentation or external references that explain any complex components. This section should give readers a clear view of how the project is implemented from a technical perspective.</p>
 <p>This page is a technical narrative, NOT just a notebook with a collection of code cells, include in-line Prose, to describe what is going on.</p>
+<div id="cell-5" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load in necessary packages</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We start off by examining the dataset gained from the American Trends Panel Wave 111 conducted by the Pew Research Center.</p>
+<div id="cell-7" class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in raw data - a sav file</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>W111_df <span class="op">=</span> pd.read_spss(<span class="st">"../../data/raw-data/ATP_W111.sav"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#View the first several rows of the data</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(W111_df.head)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    QKEY INTERVIEW_START_W111  INTERVIEW_END_W111 DEVICE_TYPE_W111 LANG_W111  \
+0  113.0  2022-07-05 16:28:49 2022-07-06 03:44:16       Smartphone   English   
+1  115.0  2022-07-05 16:28:59 2022-07-16 20:39:46       Smartphone   English   
+2  116.0  2022-07-05 16:29:59 2022-07-05 16:39:21           Tablet   English   
+3  117.0  2022-07-05 16:30:18 2022-07-05 16:36:32        Laptop/PC   English   
+4  119.0  2022-07-05 16:30:35 2022-07-05 16:38:35       Smartphone   English   
+
+    XTABLET_W111        SHOP18_W111  \
+0  Non-tablet HH               Some   
+1  Non-tablet HH               None   
+2  Non-tablet HH  All or almost all   
+3  Non-tablet HH               Some   
+4  Non-tablet HH               None   
+
+                                         SHOP19_W111  \
+0  I try to make sure that I always have cash wit...   
+1  I don’t really worry much about whether or not...   
+2  I don’t really worry much about whether or not...   
+3  I don’t really worry much about whether or not...   
+4  I don’t really worry much about whether or not...   
+
+                  METOO1_W111  \
+0            Strongly support   
+1            Strongly support   
+2  Neither support nor oppose   
+3            Somewhat support   
+4            Strongly support   
+
+                                  METOOSUPOE_M1_W111  ... F_PARTYLN_FINAL  \
+0          Women need or deserve equality or respect  ...             NaN   
+1                                                NaN  ...             NaN   
+2                                                NaN  ...             NaN   
+3          Women need or deserve equality or respect  ...             NaN   
+4  Personal experiences (of the respondent or som...  ...             NaN   
+
+  F_PARTYSUM_FINAL F_PARTYSUMIDEO_FINAL                     F_INC_SDT1  \
+0     Dem/Lean Dem     Liberal Dem/Lean  $90,000 to less than $100,000   
+1     Dem/Lean Dem     Liberal Dem/Lean  $90,000 to less than $100,000   
+2     Dem/Lean Dem     Liberal Dem/Lean               $100,000 or more   
+3     Dem/Lean Dem     Liberal Dem/Lean              Less than $30,000   
+4     Dem/Lean Dem     Liberal Dem/Lean   $50,000 to less than $60,000   
+
+                                               F_REG        F_IDEO  \
+0  You are PROBABLY registered, but there is a ch...       Liberal   
+1  You are ABSOLUTELY CERTAIN that you are regist...  Very liberal   
+2  You are ABSOLUTELY CERTAIN that you are regist...       Liberal   
+3  You are ABSOLUTELY CERTAIN that you are regist...       Liberal   
+4  You are ABSOLUTELY CERTAIN that you are regist...  Very liberal   
+
+             F_INTFREQ F_VOLSUM    F_INC_TIER2 WEIGHT_W111  
+0  Several times a day      Yes  Middle income    0.582137  
+1    Almost constantly       No  Middle income    0.094086  
+2    Almost constantly       No   Upper income    0.072813  
+3    Almost constantly       No   Lower income    0.713802  
+4    Almost constantly      Yes  Middle income    0.091391  
+
+[5 rows x 139 columns]</code></pre>
+</div>
+</div>
+<p>We find that the Data Frame has a 6034 rows and 139 columns. That implies there will need to be some columns to be eliminated which will be done in the data cleaning step.</p>
+<div id="cell-9" class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Disply data frame shape and column titles</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(W111_df.shape)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(W111_df.columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(6034, 139)
+Index(['QKEY', 'INTERVIEW_START_W111', 'INTERVIEW_END_W111',
+       'DEVICE_TYPE_W111', 'LANG_W111', 'XTABLET_W111', 'SHOP18_W111',
+       'SHOP19_W111', 'METOO1_W111', 'METOOSUPOE_M1_W111',
+       ...
+       'F_PARTYLN_FINAL', 'F_PARTYSUM_FINAL', 'F_PARTYSUMIDEO_FINAL',
+       'F_INC_SDT1', 'F_REG', 'F_IDEO', 'F_INTFREQ', 'F_VOLSUM', 'F_INC_TIER2',
+       'WEIGHT_W111'],
+      dtype='object', length=139)</code></pre>
+</div>
+</div>
+<p>We also find that 4 out of the 139 columns are non-categorical which implies, we have to continue searching for data for a regression.</p>
+<div id="cell-11" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display column data types</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(W111_df.dtypes)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>non_categorical_columns <span class="op">=</span> []</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> col <span class="kw">in</span> W111_df.columns:</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> W111_df[col].dtype <span class="op">!=</span> <span class="st">"category"</span>:</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>        non_categorical_columns.append(col)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(non_categorical_columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>QKEY                           float64
+INTERVIEW_START_W111    datetime64[ns]
+INTERVIEW_END_W111      datetime64[ns]
+DEVICE_TYPE_W111              category
+LANG_W111                     category
+                             ...      
+F_IDEO                        category
+F_INTFREQ                     category
+F_VOLSUM                      category
+F_INC_TIER2                   category
+WEIGHT_W111                    float64
+Length: 139, dtype: object
+['QKEY', 'INTERVIEW_START_W111', 'INTERVIEW_END_W111', 'WEIGHT_W111']</code></pre>
+</div>
+</div>
+<p>Then, we import and view the 2023 Consumer Expenditure Survey Data.</p>
+<div id="cell-13" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#  Import data for income</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>income_1_df <span class="op">=</span> pd.read_csv(<span class="st">"../../data/raw-data/itii232.csv"</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>income_2_df <span class="op">=</span> pd.read_csv(<span class="st">"../../data/raw-data/itii233.csv"</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>income_3_df <span class="op">=</span> pd.read_csv(<span class="st">"../../data/raw-data/itii234.csv"</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>income_4_df <span class="op">=</span> pd.read_csv(<span class="st">"../../data/raw-data/itii241.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Each of the the Data Frames have 8 columns. Their shapes are displayed below. We find that the data frames have identical columns so they can be merged in the data collection stage, and we can filter for relevant columns.</p>
+<div id="cell-15" class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(income_1_df.head)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(income_2_df.head)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;bound method NDFrame.head of           NEWID  REFMO  REFYR     UCC  PUBFLAG VALUE_  IMPNUM        VALUE
+0       5090604      1   2023  900030        2    NaN       1  3169.833300
+1       5090604      1   2023  900030        2    NaN       2  3169.833300
+2       5090604      1   2023  900030        2    NaN       3  3169.833300
+3       5090604      1   2023  900030        2    NaN       4  3169.833300
+4       5090604      1   2023  900030        2    NaN       5  3169.833300
+...         ...    ...    ...     ...      ...    ...     ...          ...
+330445  5366911      5   2023  980071        2    NaN       1   820.250000
+330446  5366911      5   2023  980071        2    NaN       2   250.000000
+330447  5366911      5   2023  980071        2    NaN       3   100.000000
+330448  5366911      5   2023  980071        2    NaN       4   294.666667
+330449  5366911      5   2023  980071        2    NaN       5   160.250000
+
+[330450 rows x 8 columns]&gt;
+&lt;bound method NDFrame.head of           NEWID  REFMO  REFYR     UCC  PUBFLAG VALUE_  IMPNUM         VALUE
+0       5201374      4   2023  800940        2    NaN       1    156.333300
+1       5201374      4   2023  800940        2    NaN       2    190.833300
+2       5201374      4   2023  800940        2    NaN       3    186.583300
+3       5201374      4   2023  800940        2    NaN       4    142.000000
+4       5201374      4   2023  800940        2    NaN       5    178.416700
+...         ...    ...    ...     ...      ...    ...     ...           ...
+330835  5446571      8   2023  980071        2    NaN       1  12866.833333
+330836  5446571      8   2023  980071        2    NaN       2  12866.833333
+330837  5446571      8   2023  980071        2    NaN       3  12866.833333
+330838  5446571      8   2023  980071        2    NaN       4  12866.833333
+330839  5446571      8   2023  980071        2    NaN       5  12866.833333
+
+[330840 rows x 8 columns]&gt;</code></pre>
+</div>
+</div>
+<div id="cell-16" class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(income_3_df.head)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(income_4_df.head)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;bound method NDFrame.head of           NEWID  REFMO  REFYR     UCC  PUBFLAG VALUE_  IMPNUM   VALUE
+0       5251754      7   2023  800940        2    NaN       1   382.5
+1       5251754      7   2023  800940        2    NaN       2   382.5
+2       5251754      7   2023  800940        2    NaN       3   382.5
+3       5251754      7   2023  800940        2    NaN       4   382.5
+4       5251754      7   2023  800940        2    NaN       5   382.5
+...         ...    ...    ...     ...      ...    ...     ...     ...
+322315  5573581     11   2023  980071        2    NaN       1  6802.0
+322316  5573581     11   2023  980071        2    NaN       2  6802.0
+322317  5573581     11   2023  980071        2    NaN       3  6802.0
+322318  5573581     11   2023  980071        2    NaN       4  6802.0
+322319  5573581     11   2023  980071        2    NaN       5  6802.0
+
+[322320 rows x 8 columns]&gt;
+&lt;bound method NDFrame.head of           NEWID  REFMO  REFYR     UCC  PUBFLAG VALUE_  IMPNUM        VALUE
+0       5286244     10   2023  900090        2    NaN       1   133.333300
+1       5286244     10   2023  900090        2    NaN       2   133.333300
+2       5286244     10   2023  900090        2    NaN       3   133.333300
+3       5286244     10   2023  900090        2    NaN       4   133.333300
+4       5286244     10   2023  900090        2    NaN       5   133.333300
+...         ...    ...    ...     ...      ...    ...     ...          ...
+325195  5608061     12   2023  980071        2    NaN       1  2161.333333
+325196  5608061     12   2023  980071        2    NaN       2  2161.333333
+325197  5608061     12   2023  980071        2    NaN       3  2161.333333
+325198  5608061     12   2023  980071        2    NaN       4  2161.333333
+325199  5608061     12   2023  980071        2    NaN       5  2161.333333
+
+[325200 rows x 8 columns]&gt;</code></pre>
+</div>
+</div>
+<p>There are more datasets: mtbi</p>
 <section id="example" class="level2">
 <h2 class="anchored" data-anchor-id="example">Example</h2>
 <p>In the following code, we first utilized the requests library to retrieve the HTML content from the Wikipedia page. Afterward, we employed BeautifulSoup to parse the HTML and locate the specific table of interest by using the find function. Once the table was identified, we extracted the relevant data by iterating through its rows, gathering country names and their respective populations. Finally, we used Pandas to store the collected data in a DataFrame, allowing for easy analysis and visualization. The data could also be optionally saved as a CSV file for further use.</p>
-<div id="cell-6" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> bs4 <span class="im">import</span> BeautifulSoup</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 1: Send a request to Wikipedia page</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">'https://en.wikipedia.org/wiki/List_of_countries_and_dependencies_by_population'</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(url)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 2: Parse the page content using BeautifulSoup</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>soup <span class="op">=</span> BeautifulSoup(response.content, <span class="st">'html.parser'</span>)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 3: Find the table containing the data (usually the first table for such lists)</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>table <span class="op">=</span> soup.find(<span class="st">'table'</span>, {<span class="st">'class'</span>: <span class="st">'wikitable'</span>})</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 4: Extract data from the table rows</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>countries <span class="op">=</span> []</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>populations <span class="op">=</span> []</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Iterate over the table rows</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> row <span class="kw">in</span> table.find_all(<span class="st">'tr'</span>)[<span class="dv">1</span>:]:  <span class="co"># Skip the header row</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    cells <span class="op">=</span> row.find_all(<span class="st">'td'</span>)</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(cells) <span class="op">&gt;</span> <span class="dv">1</span>:</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>        country <span class="op">=</span> cells[<span class="dv">1</span>].text.strip()  <span class="co"># The country name is in the second column</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>        population <span class="op">=</span> cells[<span class="dv">2</span>].text.strip()  <span class="co"># The population is in the third column</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>        countries.append(country)</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>        populations.append(population)</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 5: Create a DataFrame to store the results</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Country'</span>: countries,</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Population'</span>: populations</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the scraped data</span></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data)</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Optionally save to CSV</span></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>data.to_csv(<span class="st">'../../data/raw-data/countries_population.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-19" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> bs4 <span class="im">import</span> BeautifulSoup</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 1: Send a request to Wikipedia page</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">'https://en.wikipedia.org/wiki/List_of_countries_and_dependencies_by_population'</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(url)</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 2: Parse the page content using BeautifulSoup</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>soup <span class="op">=</span> BeautifulSoup(response.content, <span class="st">'html.parser'</span>)</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 3: Find the table containing the data (usually the first table for such lists)</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>table <span class="op">=</span> soup.find(<span class="st">'table'</span>, {<span class="st">'class'</span>: <span class="st">'wikitable'</span>})</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 4: Extract data from the table rows</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>countries <span class="op">=</span> []</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>populations <span class="op">=</span> []</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Iterate over the table rows</span></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> row <span class="kw">in</span> table.find_all(<span class="st">'tr'</span>)[<span class="dv">1</span>:]:  <span class="co"># Skip the header row</span></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>    cells <span class="op">=</span> row.find_all(<span class="st">'td'</span>)</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(cells) <span class="op">&gt;</span> <span class="dv">1</span>:</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>        country <span class="op">=</span> cells[<span class="dv">1</span>].text.strip()  <span class="co"># The country name is in the second column</span></span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>        population <span class="op">=</span> cells[<span class="dv">2</span>].text.strip()  <span class="co"># The population is in the third column</span></span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>        countries.append(country)</span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>        populations.append(population)</span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 5: Create a DataFrame to store the results</span></span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Country'</span>: countries,</span>
+<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Population'</span>: populations</span>
+<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the scraped data</span></span>
+<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data)</span>
+<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Optionally save to CSV</span></span>
+<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a>data.to_csv(<span class="st">'../../data/raw-data/countries_population.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                                 Country     Population
 0                                  World  8,119,000,000
@@ -460,18 +655,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -503,7 +687,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -511,7 +717,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

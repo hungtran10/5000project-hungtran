@@ -8,5 +8,12 @@ In this section, provide a high-level overview for technical staff, summarizing 
 
 This overview should give technical staff a clear understanding of the context and importance of the work, while guiding them on what to focus on in the details that follow.
 
+**Data Sources**
+1. Source 1: Survey data from American Trends Panel Wave 111 conducted by the Pew Research Center. It can be accessed at the URL: https://www.pewresearch.org/dataset/american-trends-panel-wave-111/.  
+This is tabular data under the file name "ATP W111.sav".
+2. Source 2: Public use microdata (2023) from Consumer Expenditure Survey Data from the U.S. Bureau of Labor Statistics. 
+The 2023 data can be accessed at the URL: https://www.bls.gov/cex/pumd_data.htm#csv.  
+
+
 
 
