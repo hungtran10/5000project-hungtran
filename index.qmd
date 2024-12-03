@@ -31,7 +31,7 @@ You can reach me at <mt1584@georgetown.edu> for any inquiries. Please visit my [
 
 - Summarize your topic, its significance, related work, and the questions you plan to explore.
 - Draft an introduction with at least **5 research questions**. These may evolve as your project progresses, since data science is an iterative process.
-In the wake of political events of fall 2024, I have been interested in economics and the potential impact of policies on the cost-of-living for everyday Americans. Additionally, being around the holiday season, I want to investigate the retail shopping sector. In particular, I would like to examine the factors that impact customer preferences for online versus in-person shopping. Please continue exploring this website to learn how I conducted my research and the insights that I gathered. 
+In the wake of political events of fall 2024, I have been interested in economics and the potential impact of policies on the cost-of-living for everyday Americans. Additionally, being around the holiday season, I want to investigate the retail shopping sector. In particular, I would like to examine the factors that impact customer preferences for online versus in-person shopping. Thus, goods in this context pertainn to tangible goods in retail. Please continue exploring this website to learn how I conducted my research and the insights that I gathered. 
 
 - Preliminary research questions:
   - How do customer demographics (age, gender, income, etc.) influence their preference for in-store or online shopping?
