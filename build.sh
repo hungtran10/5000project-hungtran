@@ -6,7 +6,7 @@ dir1=${PWD}
 rm -rf 5000-Project;
 
 # BUILD WEBSITE
-quarto render
+#quarto render
 
 # CLEAN UP 
 cd 5000-Project; for i in $(find  ./ -name .DS_Store); do rm $i; done; cd "$dir1"
