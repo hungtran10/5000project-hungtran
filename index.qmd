@@ -34,12 +34,15 @@ You can reach me at <mt1584@georgetown.edu> for any inquiries. Please visit my [
 In the wake of political events of fall 2024, I have been interested in economics and the potential impact of policies on the cost-of-living for everyday Americans. Additionally, being around the holiday season, I want to investigate the retail shopping sector. In particular, I would like to examine the factors that impact customer preferences for online versus in-person shopping. Thus, goods in this context pertainn to tangible goods in retail. Please continue exploring this website to learn how I conducted my research and the insights that I gathered. 
 
 - Preliminary research questions:
-  - How do customer demographics (age, gender, income, etc.) influence their preference for in-store or online shopping?
+  - How do customer demographics (age, gender, race, education level, income, etc.) influence one's preference for in-store or online shopping?
+  - What demographic factors predict proportion of online spending among total expenses?
+  - What is the relationship between retirement contributions and shopping preferences?
+  - Can we predict one's employment type or education level based on how much they spend on online shopping?
   - What are the primary factors that drive customers to choose in-store or online shopping for different product categories?
   - How does customer satisfaction differ between in-store and online shopping experiences?
-  - What are the key factors that contribute to customer satisfaction in each shopping channel?
   - What are the most common reasons for customer dissatisfaction in each shopping channel?
 
+These research questions will be refined based on the data that becomes available. 
 
 ### Literature review
 
