@@ -6,6 +6,7 @@ project:
     - "*.qmd"
     - "*.ipynb"
     - "!xtra"
+  output-dir: 5000-Project
 
 website:
   title: "DSAN-5000: Project"
