@@ -9,7 +9,7 @@ rm -rf 5000-Project;
 #quarto render
 
 # CLEAN UP 
-cd 5000-Project; for i in $(find  ./ -name .DS_Store); do rm $i; done; cd "$dir1"
+#cd 5000-Project; for i in $(find  ./ -name .DS_Store); do rm $i; done; cd "$dir1"
 
 # SET CORRECT PERMISSIONS FOR ALL FILES 
 for i in $(find 5000-Project -type f); do chmod 644 $i; done
