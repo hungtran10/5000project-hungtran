@@ -2,15 +2,13 @@
 
 In this section, provide a high-level overview for technical staff, summarizing the key tasks and processes carried out here. Include the following elements:
 
-- **Goals**: Clearly define the purpose of the tasks or analysis being conducted.
-- **Motivation**: Explain the reasoning behind the work, such as solving a specific problem, improving a system, or optimizing performance.
-- **Objectives**: Outline the specific outcomes you aim to achieve, whether it's implementing a solution, analyzing data, or building a model.
+- **Goals**: The goal of this project is to extract as many insights out of the data as possible through a various modeling techniques. I want to be able to learn how to use data collected to train models to predict outcomes and potentially have an impact on how business conduct strategic decision-making. 
+- **Motivation**: Explain the reasoning behind the work, such as solving a specific problem, improving a system, or optimizing performance. I am motivated to help businesses have a better understanding of their customers' shopping habits. More specifically, I want businesses to be more aware of how they can enhance customer segmentation for channel preference. Doing so allows businesses to identify which customer segments prefer one channel over the other, and changes can be made tailor delivery channels more effectively.
+- **Objectives**: My object for this project is to improve my proficiency in all stages of a data science project. I want to clean data well, craft informative EDA visualizations, execute unsupervised and supervised learning so that I can understand the variables that impact the outcomes of my research questions. In particular, I want to use the supervised learning methods in class such as Decision Trees and Random Forests to conduct my analysis
 
-This overview should give technical staff a clear understanding of the context and importance of the work, while guiding them on what to focus on in the details that follow.
 
-**Data Sources**
-1. Source 1: Survey data from American Trends Panel Wave 111 conducted by the Pew Research Center. It can be accessed at the URL: https://www.pewresearch.org/dataset/american-trends-panel-wave-111/.  
-This is tabular data under the file name "ATP W111.sav".
+
+**Data Source**
 1. Source: Public use microdata (2023) from Consumer Expenditure Survey Data from the U.S. Bureau of Labor Statistics. 
 The 2023 data can be accessed at the URL: https://www.bls.gov/cex/pumd_data.htm#csv.  
 

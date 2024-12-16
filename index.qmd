@@ -36,8 +36,10 @@ In the wake of political events of fall 2024, I have been interested in economic
 - Preliminary research questions:
   - How do customer demographics (age, gender, race, education level, income, etc.) influence one's preference for in-store or online shopping?
   - What demographic factors predict proportion of online spending among total expenses?
+  - Can we predict one's online shopping expenditure based on their annual earnings and expenses?
+  - Can we predict one's sex based on their demographics and financial information?
   - What is the relationship between retirement contributions and shopping preferences?
-  - Can we predict one's employment type or education level based on how much they spend on online shopping?
+  - Can we predict one's employment type or education level based on demographic and financial information?
   - What are the primary factors that drive customers to choose in-store or online shopping for different product categories?
   - How does customer satisfaction differ between in-store and online shopping experiences?
   - What are the most common reasons for customer dissatisfaction in each shopping channel?
