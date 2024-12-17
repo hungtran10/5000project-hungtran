@@ -13,7 +13,7 @@ The 2023 data can be accessed at the URL: https://www.bls.gov/cex/pumd_data.htm#
 ## Project Workflow
 This is a data science project so I will be utilizing key stages in the data science pipeline to get to the conclusions that I am looking for. I will gather data, clean it. Then, I will conduct exploratory data analysis by identifying key statistics and data visualizations to create preliminary insights on the customers. Next, I will conduct unsupervised learning where I will identify clusters based on the  variables in the data. Lastly, I will implement predictive modeling to test regression, binary classification and multi-class classification models' abilities to predict the outcomes in my data. 
 
-## Hypothesis
+## Hypotheses
 
 - Certain race groups, married people and those who work full-time in the last year are more likely to shop online.
 - The more educated individuals, e.g. people with bachelor's, master's and beyond, are most likely to shop online and spend more due to their higher earning power provided by their education.
@@ -41,9 +41,8 @@ This is a data science project so I will be utilizing key stages in the data sci
 ### Key Technical Insights and Outcomes
 
 1. **Data Analysis and Insights**:  
-   - The analysis focused on demographic and financial variables to understand customer preferences for online vs. in-person shopping.  
    - Key predictors included income, education, race, and marital status. For example, higher-income individuals and those with advanced education levels were more likely to shop online, whereas other demographics showed a preference for in-person shopping.  
-   - Spending patterns also varied across racial groups, with Asians spending significantly more online, highlighting cultural or access-related trends.  
+   - Spending patterns also varied across racial groups, with Asians spending significantly more online, hinting at cultural or access-related trends.  
 
 2. **Modeling Outcomes**:  
    - Models like XGBoost and Random Forest achieved perfect performance metrics (AUC = 1), demonstrating their ability to capture non-linear relationships and interactions between features.  
@@ -53,7 +52,7 @@ This is a data science project so I will be utilizing key stages in the data sci
 
 3. **Business Implications**:  
    - The insights enable businesses to optimize customer segmentation, inventory allocation, and marketing strategies.  
-   - Predictive modeling allows for data-driven personalization, improving customer satisfaction and driving revenue.
+   - Predictive modeling allows for data-driven personalization, improving customer satisfaction and driving customer lifetime value.
 
 ### Potential Improvements and Refinements
 

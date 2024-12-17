@@ -37,6 +37,7 @@ website:
 format:
   html:
     theme: lumen
+    css: custom.css 
     bibliography:   ./assets/references.bib
     csl:  ./assets/nature.csl
     toc: true
