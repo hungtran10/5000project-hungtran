@@ -38,20 +38,7 @@ website:
 
 format:
   html:
-    theme: lumen
-    css: |
-      .navbar-dropdown {
-        background-color: #f0f0f0 !important; 
-        border-radius: 5px; 
-      }
-
-      .navbar-dropdown a {
-        color: #333; 
-      }
-
-      .navbar-dropdown a:hover {
-        background-color: #e0e0e0; 
-      }
+    theme: superhero
     bibliography:   ./assets/references.bib
     csl:  ./assets/nature.csl
     toc: true
