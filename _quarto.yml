@@ -19,8 +19,8 @@ website:
         text: Report
       - text: "Technical Details"
         menu: 
-          - href: technical-details/project-overview.qmd
           - text: Project Overview
+            href: technical-details/project-overview.qmd
           - text: Data Collection
             href: technical-details/data-collection/main.ipynb 
           - text: Data Cleaning
@@ -31,8 +31,6 @@ website:
             href: technical-details/unsupervised-learning/main.ipynb 
           - text: Supervised Learning
             href: technical-details/supervised-learning/main.ipynb 
-          - text: Progress Log
-            href: technical-details/progress-log.qmd
           - text: LLM usage Log
             href: technical-details/llm-usage-log.qmd
 

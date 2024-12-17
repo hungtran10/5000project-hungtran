@@ -6,7 +6,8 @@ LLM tools were used in the following way for the tasks below
 
 ## Brainstorming
 
-- To create the initial idea, LLM tools were used to brainstorm ideas and provide feedback and refine the project plan.
+- To create the initial idea, LLM tools were used to brainstorm ideas and provide feedback and refine the project plan
+- Finding appopriate supervised ML methods to use
 
 ## Writing: 
 
