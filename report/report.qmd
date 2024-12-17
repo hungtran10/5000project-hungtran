@@ -3,7 +3,7 @@
 Please find my final report for this project below. It is written for a non-technical audience, focusing on **high-level insights**, **actionable results**, and **visualizations** to convey the impact without requiring technical knowledge.
 
 
-![Project Report](../assets/finalprojectreport.pdf){width=800px height=1000px}
+![Project Report](../assets/finalprojectreport.pdf){width=800px height=500px}
 
 
 

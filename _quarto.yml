@@ -38,7 +38,7 @@ website:
 
 format:
   html:
-    theme: superhero
+    theme: zephyr
     bibliography:   ./assets/references.bib
     csl:  ./assets/nature.csl
     toc: true
