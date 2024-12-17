@@ -15,13 +15,12 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - href: technical-details/project-overview.qmd
-        text: Project Overview
-
       - href: report/report.qmd
         text: Report
       - text: "Technical Details"
         menu: 
+          - href: technical-details/project-overview.qmd
+          - text: Project Overview
           - text: Data Collection
             href: technical-details/data-collection/main.ipynb 
           - text: Data Cleaning
