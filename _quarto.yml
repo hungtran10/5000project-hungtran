@@ -36,7 +36,7 @@ website:
 
 format:
   html:
-    theme: litera
+    theme: lumen
     bibliography:   ./assets/references.bib
     csl:  ./assets/nature.csl
     toc: true

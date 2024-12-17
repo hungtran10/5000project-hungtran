@@ -35,8 +35,6 @@ You can reach me at <mt1584@georgetown.edu> for any inquiries. Please visit my [
 
 **Why You Keep Reading:** If you're interested in learning how you can turn customer data into actionable insights, and develop business strategies. 
 
-**Project Workflow:** This is a data science project so I will be utilizing key stages in the data science pipeline to get to the conclusions that I am looking for. I will gather data, clean it. Then, I will conduct exploratory data analysis by identifying key statistics and data visualizations to create preliminary insights on the customers. Next, I will conduct unsupervised learning where I will identify clusters based on the  variables in the data. Lastly, I will implement predictive modeling to test regression, binary classification and multi-class classification models' abilities to predict the outcomes in my data. 
-
 ### Preliminary research questions:
   - How do customer demographics (age, gender, race, education level, income, etc.) influence one's preference for in-store or online shopping?
   - Can we predict whether an individual has shopped online based on their demographic and financial information in the past year?
