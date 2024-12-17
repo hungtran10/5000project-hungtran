@@ -15,6 +15,8 @@ website:
     left:
       - href: index.qmd
         text: Home
+      - href: aboutme.qmd
+        text: About Me
       - href: report/report.qmd
         text: Report
       - text: "Technical Details"
@@ -37,7 +39,19 @@ website:
 format:
   html:
     theme: lumen
-    css: custom.css 
+    css: |
+      .navbar-dropdown {
+        background-color: #f0f0f0 !important; 
+        border-radius: 5px; 
+      }
+
+      .navbar-dropdown a {
+        color: #333; 
+      }
+
+      .navbar-dropdown a:hover {
+        background-color: #e0e0e0; 
+      }
     bibliography:   ./assets/references.bib
     csl:  ./assets/nature.csl
     toc: true

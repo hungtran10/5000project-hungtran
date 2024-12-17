@@ -2,31 +2,6 @@
 title: "Introduction"
 ---
 
-- - Audio instructions:- - 
-
-If you want, you can listen to the instructions:
-
-<audio controls><source src="audio/landing-page-instructions.mp3" type="audio/mpeg"></audio>
-
-<sup> - - Source- - : Text-to-speech conversion done with Amazon Polly on AWS </sup>
-
-`Note`: These audio instructions should not be included in your final submission or repository, once you are done wiht them, please delete the files and remove them from the website. 
-
-
-## What to Include on This Page
-
-This is the landing page for your project. Content from this page can be reused in sections of your final report.
-
-
-## About Me - Hung Tran
-![](assets/Headshot1.JPG){width=300}
-
-I am a first-year M.S. in Data Science and Analytics student at Georgetown University. I graduated with a B.S. in Commerce (Finance, IT, and Business Analytics) from the University in Virginia. I enjoy analyzing life through a business lens as I believe it is a powerful catalyst for change. My past internships have allowed me the opportunities to collaborate, communicate and problem solve via research and recommendation. For my first full-time job, I look forward to be in a role where I can combine my business acumen with my burgeoning technical skills to harness data for impactful decision making. 
-
-My personal interests and hobbies are fragrances, watching the Premier League and FC Barcelona, cooking, pickleball, and going to the gym. 
-You can reach me at <mt1584@georgetown.edu> for any inquiries. Please visit my [LinkedIn profile](https://www.linkedin.com/in/hungtran8/) for a more comprehensive overview on my professional and academic career, and send me a request if you'd like to connect! 
-
-
 ## Introduction to My Project 
 
 ### Research Topic: Customer Preferences for Online v. In-Person Shopping
