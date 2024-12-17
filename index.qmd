@@ -1,14 +1,14 @@
 ---
-title: "Landing page"
+title: "Introduction"
 ---
 
-**Audio instructions:**
+- - Audio instructions:- - 
 
 If you want, you can listen to the instructions:
 
 <audio controls><source src="audio/landing-page-instructions.mp3" type="audio/mpeg"></audio>
 
-<sup> **Source**: Text-to-speech conversion done with Amazon Polly on AWS </sup>
+<sup> - - Source- - : Text-to-speech conversion done with Amazon Polly on AWS </sup>
 
 `Note`: These audio instructions should not be included in your final submission or repository, once you are done wiht them, please delete the files and remove them from the website. 
 
@@ -18,22 +18,26 @@ If you want, you can listen to the instructions:
 This is the landing page for your project. Content from this page can be reused in sections of your final report.
 
 
-### About Me - Hung Tran
+## About Me - Hung Tran
 ![](assets/Headshot1.JPG){width=300}
 
 I am a first-year M.S. in Data Science and Analytics student at Georgetown University. I graduated with a B.S. in Commerce (Finance, IT, and Business Analytics) from the University in Virginia. I enjoy analyzing life through a business lens as I believe it is a powerful catalyst for change. My past internships have allowed me the opportunities to collaborate, communicate and problem solve via research and recommendation. For my first full-time job, I look forward to be in a role where I can combine my business acumen with my burgeoning technical skills to harness data for impactful decision making. 
 
-My personal interests and hobbies are fragrances, watching the Premier League and FC Barcelona,cooking, pickleball, and going to the gym. 
+My personal interests and hobbies are fragrances, watching the Premier League and FC Barcelona, cooking, pickleball, and going to the gym. 
 You can reach me at <mt1584@georgetown.edu> for any inquiries. Please visit my [LinkedIn profile](https://www.linkedin.com/in/hungtran8/) for a more comprehensive overview on my professional and academic career, and send me a request if you'd like to connect! 
 
 
-### Introduction to My Project (replace later) 
+## Introduction to My Project 
 
-- Summarize your topic, its significance, related work, and the questions you plan to explore.
-- Draft an introduction with at least **5 research questions**. These may evolve as your project progresses, since data science is an iterative process.
-In the wake of political events of fall 2024, I have been interested in economics and the potential impact of policies on the cost-of-living for everyday Americans. Additionally, being around the holiday season, I want to investigate the retail shopping sector. In particular, I would like to examine the factors that impact customer preferences for online versus in-person shopping. Thus, goods in this context pertainn to tangible goods in retail. Please continue exploring this website to learn how I conducted my research and the insights that I gathered. 
+### Research Topic: Customer Preferences for Online v. In-Person Shopping
 
-- Preliminary research questions:
+**Why I was Interested:** In the wake of economic and political events in from 2023 up until the end of 2024, I have been interested in economics and the potential impact of policies on the cost-of-living for everyday Americans. Additionally, being around the holiday season, I want to investigate the retail shopping sector. In particular, I would like to how businesses can utilize customer information to better tailor their channel experiences. Thus, goods in this context pertain to tangible goods in retail. Please continue exploring this website to learn how I conducted my research and the insights that I gathered. 
+
+**Why You Keep Reading:** If you're interested in learning how you can turn customer data into actionable insights, and develop business strategies. 
+
+**Project Workflow:** This is a data science project so I will be utilizing key stages in the data science pipeline to get to the conclusions that I am looking for. I will gather data, clean it. Then, I will conduct exploratory data analysis by identifying key statistics and data visualizations to create preliminary insights on the customers. Next, I will conduct unsupervised learning where I will identify clusters based on the  variables in the data. Lastly, I will implement predictive modeling to test regression, binary classification and multi-class classification models' abilities to predict the outcomes in my data. 
+
+### Preliminary research questions:
   - How do customer demographics (age, gender, race, education level, income, etc.) influence one's preference for in-store or online shopping?
   - What demographic factors predict proportion of online spending among total expenses?
   - Can we predict one's online shopping expenditure based on their annual earnings and expenses?
@@ -46,50 +50,52 @@ In the wake of political events of fall 2024, I have been interested in economic
 
 These research questions will be refined based on the data that becomes available. 
 
+**Where to Go Next:** Please refer to the 'Technical Details' tab for the in-depth analysis of my code. If you want to get straight to the insights, click on the 'Report' tab.
+
 ### Literature review
 
 I conducted a literature review of five papers to better understand the studies that have been conducted for topics surrounding in-store vs. online shopping, hoping to see if the existing knowledge can help guide my project. Here are their insights.
 
 1. "Exploring the choice between in-store and online shopping" by Schmid, Schmutz and Axhausen
-   * Researched the attributes relavant to in-store and online shopping for groceries and electronic goods.
-   * Key findings:
-     * The study found that the value of travel time savings (VTTS) is about 40 Swiss Francs per hour, and the value of delivery time savings (VDTS) ranges between 1.50 and 14.10 CHF/time unit, depending on shopping purpose and time interval. This means online retailers should consider factoring in customer's willingness to have things deliver into prices i.e. make prices higher to account for delivery. @schmid_exploring_2016
-     * Market shares of online and in-store shopping choices depend on the shopping purpose, with 65% choosing in-store and 35% choosing online for groceries, and 39% choosing in-store and 61% choosing online for electronic goods. @schmid_exploring_2016
-     * Limited to Switzerland
+   -  Researched the attributes relavant to in-store and online shopping for groceries and electronic goods.
+   -  Key findings:
+     -  The study found that the value of travel time savings (VTTS) is about 40 Swiss Francs per hour, and the value of delivery time savings (VDTS) ranges between 1.50 and 14.10 CHF/time unit, depending on shopping purpose and time interval. This means online retailers should consider factoring in customer's willingness to have things deliver into prices i.e. make prices higher to account for delivery. @schmid_exploring_2016
+     -  Market shares of online and in-store shopping choices depend on the shopping purpose, with 65% choosing in-store and 35% choosing online for groceries, and 39% choosing in-store and 61% choosing online for electronic goods. @schmid_exploring_2016
+     -  Limited to Switzerland
 2. "Accessibility or Innovation? Store Shopping Trips versus Online Shopping" by Maat and Konings
-   * The study examines the impact of online shopping on physical stores, testing two hypotheses: the *diffusion of innovation hypothesis* and the *efficiency hypothesis*, and finds that both hypotheses have an impact, although the innovation hypothesis is more significant. @maat_accessibility_2018
-   * Key findings:
-     * Richer households are more likely to shop for groceries online. @maat_accessibility_2018
-     * For clothes, people with more access to clothing stores are more likely to buy online. @maat_accessibility_2018
-     * People who get pleasure from buying books and have an interest in culture are less likely to online shop for books. @maat_accessibility_2018
-   * Limited to the Netherlands
+   -  The study examines the impact of online shopping on physical stores, testing two hypotheses: the - diffusion of innovation hypothesis-  and the - efficiency hypothesis- , and finds that both hypotheses have an impact, although the innovation hypothesis is more significant. @maat_accessibility_2018
+   -  Key findings:
+     -  Richer households are more likely to shop for groceries online. @maat_accessibility_2018
+     -  For clothes, people with more access to clothing stores are more likely to buy online. @maat_accessibility_2018
+     -  People who get pleasure from buying books and have an interest in culture are less likely to online shop for books. @maat_accessibility_2018
+   -  Limited to the Netherlands
 3. "Shopping mode choice: Physical store shopping versus e-shopping" by Ming-Hsiung Hsiao
-   * This study examines the *tradeoff between time and cost* attributes of shopping modes, specifically physical store shopping and e-shopping, and estimates the value of time in terms of travel time to shopping places and waiting time for product delivery. @hsiao_shopping_2009
-   * Economic functions, such as travel cost, travel time, purchase price, and waiting time for product delivery, play a crucial role in influencing consumers' shopping mode choices. @hsiao_shopping_2009
-   * Key findings:
-     * Online stores generally offer lower prices than physical stores, but transaction security and product delivery problems are major concerns for consumers. @hsiao_shopping_2009
-     * Avoiding a shopping trip produces far more benefits than bearing waiting for the delivery of online purchased books: $5.58 vs. $2.90. @hsiao_shopping_2009
-     * The value of travel time is $5.29/hour while the value of delivery time is $0.53/day. @hsiao_shopping_2009
-   * Limited to books
+   -  This study examines the - tradeoff between time and cost-  attributes of shopping modes, specifically physical store shopping and e-shopping, and estimates the value of time in terms of travel time to shopping places and waiting time for product delivery. @hsiao_shopping_2009
+   -  Economic functions, such as travel cost, travel time, purchase price, and waiting time for product delivery, play a crucial role in influencing consumers' shopping mode choices. @hsiao_shopping_2009
+   -  Key findings:
+     -  Online stores generally offer lower prices than physical stores, but transaction security and product delivery problems are major concerns for consumers. @hsiao_shopping_2009
+     -  Avoiding a shopping trip produces far more benefits than bearing waiting for the delivery of online purchased books: $5.58 vs. $2.90. @hsiao_shopping_2009
+     -  The value of travel time is $5.29/hour while the value of delivery time is $0.53/day. @hsiao_shopping_2009
+   -  Limited to books
 4. "Comparing online and in-store risks in multichannel shopping" by Christophe Bezes
-   * Key findings:
-     * Overall *perceived risk* is higher online than in-store, with performance, financial, psychological, transaction, and logistics risks being higher online, while time risk is lower online. Familiarity and experience with the channel reduces overall perceived risk. It is easier to improve perceived value than to reduce online purchase risk. @bezes_comparing_2016
-     * Overall *purchase risk* is higher and more dissuasive on the website than in-store, and that logistics, psychological, and performance risks are more influential for an online purchase, while financial, time, and transaction risks are more influential for an in-store purchase. @bezes_comparing_2016
-     * The study concludes that retailers should focus on reducing performance risk on their website and time risk in their stores. @bezes_comparing_2016
+   -  Key findings:
+     -  Overall - perceived risk-  is higher online than in-store, with performance, financial, psychological, transaction, and logistics risks being higher online, while time risk is lower online. Familiarity and experience with the channel reduces overall perceived risk. It is easier to improve perceived value than to reduce online purchase risk. @bezes_comparing_2016
+     -  Overall - purchase risk-  is higher and more dissuasive on the website than in-store, and that logistics, psychological, and performance risks are more influential for an online purchase, while financial, time, and transaction risks are more influential for an in-store purchase. @bezes_comparing_2016
+     -  The study concludes that retailers should focus on reducing performance risk on their website and time risk in their stores. @bezes_comparing_2016
 5. "To be online or in-store: Analysis of retail, grocery, and food shopping in New York City" by Woojung Kim and Xiaokun Wang
-   * This study investigates the factors affecting retail, grocery, and food deliveries and their relationships with in-store shopping trips by mode, using survey data. @kim_be_2021
-   * Key findings:
-     * The number of children in the household was associated with more frequent retail, grocery, and food deliveries. Age was negatively associated with both delivery and in-store walking trip. Having a smartphone increased the likelihood of both delivery and in-store shopping. @kim_be_2021
-     * The study found that online shopping and in-store shopping for retail, grocery, and food are interconnected, and that factors affecting deliveries vary by the type of delivery (retail, grocery or food). The results also showed that underrepresented races and elderly people are less likely to receive all three delivery services. @kim_be_2021
+   -  This study investigates the factors affecting retail, grocery, and food deliveries and their relationships with in-store shopping trips by mode, using survey data. @kim_be_2021
+   -  Key findings:
+     -  The number of children in the household was associated with more frequent retail, grocery, and food deliveries. Age was negatively associated with both delivery and in-store walking trip. Having a smartphone increased the likelihood of both delivery and in-store shopping. @kim_be_2021
+     -  The study found that online shopping and in-store shopping for retail, grocery, and food are interconnected, and that factors affecting deliveries vary by the type of delivery (retail, grocery or food). The results also showed that underrepresented races and elderly people are less likely to receive all three delivery services. @kim_be_2021
 
 ## Additional Ideas for things to include 
 
-- **Audience**: Who is this for? Data professionals, businesses, researchers, or curious readers.
-- **Headline**: A captivating title introducing the data science theme (e.g., "Unlocking Insights Through Data Stories").
-- **Introduction**: A brief, engaging overview of what the website offers (e.g., data-driven stories, insights, or case studies).
-- **Questions You Are Addressing**: What do you hope to learn?
-- **Motivation**: Explain why this topic matters, highlighting the importance of data in solving real-world problems.
-- **Key Topics**: List the main focus areas (e.g., machine learning, data visualization, predictive modeling).
-- **Use Cases/Examples**: A brief teaser of compelling stories or case studies you’ve worked on.
-- **Call to Action**: Invite visitors to explore the content, follow along, or contact you for more information.
-- **Visual/Infographic**: Add a simple graphic or visual element to make the page more dynamic.
+- - - Audience- - : Who is this for? Data professionals, businesses, researchers, or curious readers.
+- - - Headline- - : A captivating title introducing the data science theme (e.g., "Unlocking Insights Through Data Stories").
+- - - Introduction- - : A brief, engaging overview of what the website offers (e.g., data-driven stories, insights, or case studies).
+- - - Questions You Are Addressing- - : What do you hope to learn?
+- - - Motivation- - : Explain why this topic matters, highlighting the importance of data in solving real-world problems.
+- - - Key Topics- - : List the main focus areas (e.g., machine learning, data visualization, predictive modeling).
+- - - Use Cases/Examples- - : A brief teaser of compelling stories or case studies you’ve worked on.
+- - - Call to Action- - : Invite visitors to explore the content, follow along, or contact you for more information.
+- - - Visual/Infographic- - : Add a simple graphic or visual element to make the page more dynamic.

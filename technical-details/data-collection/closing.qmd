@@ -7,6 +7,10 @@ This section should be written for a **technical audience**, focusing on detaile
 - Discuss any technical challenges faced during the project, such as data limitations, computational issues, or obstacles encountered during analysis.
 - Explain unexpected results and their technical implications.
 - Identify areas for future work, including potential optimizations, further analysis, or scaling solutions.
+- **Finding data:** Given the nature of this topic, it took me a while to locate publicly available data.
+- **Data cleaning:** The data came in a number of CSV files organized in a star schema meaning that is composed of a single, central set of fact tables that is surrounded by dimension tables. Moreover, all the variables per file had a unique naming system and encoded so I had to refer to a data dictionary to decode them.
+- **Data Limitations:** Although I had around 39,000 rows in the cleaned dataset, it was imbalanced between individuals who have shopped online in 2023 vs. those who did not. This made predictive modeling more challenging as I had to do resampling to achieve a more balanced dataset. 
+- **Strong Predictive Power:** The strong predictive performance of my models were suprising, and this raises questions about overfitting.
 
 ## Benchmarks
 
@@ -17,3 +21,49 @@ This section should be written for a **technical audience**, focusing on detaile
 - Summarize the key technical points and outcomes of the project.
 - Suggest potential improvements or refinements to this part of the project.
 - Based on the results, provide actionable recommendations for further research or optimization efforts.
+### Key Technical Insights and Outcomes
+
+1. **Data Analysis and Insights**:  
+   - The analysis focused on demographic and financial variables to understand customer preferences for online vs. in-person shopping.  
+   - Key predictors included income, education, race, and marital status. For example, higher-income individuals and those with advanced education levels were more likely to shop online, whereas other demographics showed a preference for in-person shopping.  
+   - Spending patterns also varied across racial groups, with Asians spending significantly more online, highlighting cultural or access-related trends.  
+
+2. **Modeling Outcomes**:  
+   - Models like XGBoost and Random Forest achieved perfect performance metrics (AUC = 1), demonstrating their ability to capture non-linear relationships and interactions between features.  
+   - Logistic Regression provided interpretability but was slightly less robust for capturing complex patterns in the data.  
+   - Linear models like LinearSVC exhibited sensitivity to class imbalances, with reduced recall for minority groups.  
+   - Overall, the project showcased strong predictive accuracy, validating the importance of demographic and financial features in understanding shopping preferences.
+
+3. **Business Implications**:  
+   - The insights enable businesses to optimize customer segmentation, inventory allocation, and marketing strategies.  
+   - Predictive modeling allows for data-driven personalization, improving customer satisfaction and driving revenue.
+
+### Potential Improvements and Refinements
+
+1. **Addressing Class Imbalances**:  
+   - Models like LinearSVC struggled with recall for minority groups due to imbalanced classes. Techniques like SMOTE (Synthetic Minority Over-sampling Technique) or cost-sensitive learning could enhance performance. Alternatively, more robust data can address this issue.
+
+2. **Incorporate More Types of Data**:  
+   - Explore additional features, such as behavioral data (e.g., shopping frequency, preferred categories), to improve predictions further.  
+   - Incorporate geospatial variables to understand regional preferences for online vs. in-person shopping.
+
+3. **Validation Across Broader Datasets**:  
+   - The current dataset demonstrated strong predictive power. However, testing on external datasets or across different regions, industries, or customer bases would improve generalizability.  
+
+4. **Incorporate Temporal Analysis**:  
+   - Use time series data to analyze how preferences evolve over time to identify trends or seasonal patterns, enabling dynamic business strategies.
+
+
+### Actionable Recommendations for Further Research 
+
+1. **Expand Data Scope**:  
+   - Incorporate additional data sources, such as customer reviews, customer interaction data, customer purchase history, web traffic analytics, or loyalty program participation, to refine predictions and insights.  
+   - If available, include psychographic data (e.g., lifestyle and interests) for deeper customer understanding.
+
+2. **Develop Real-Time Prediction Systems**:  
+   - Implement real-time predictive analytics to dynamically identify customer preferences and adapt inventory and promotions accordingly.  
+   - For example, use model outputs to instantly target online-exclusive offers to customers flagged as online shoppers.
+
+3. **Test Location and Segment-Specific Strategies**:  
+   - Design A/B tests to evaluate how insights about online vs. in-person preferences translate into actionable marketing strategies.  
+   - For instance, test the effectiveness of location-specific online promotions for high-income customers or in-store campaigns for groups preferring physical shopping.

@@ -72,3 +72,6 @@ These are just examples, you can use any structure that is suitable for your pro
 - **Simplicity**: Avoid jargon; focus on business-relevant insights.
 - **Visual Focus**: Prioritize charts and graphs over dense text.
 - **Emphasize Impact**: Always link data insights to business outcomes.
+
+```{html}
+<iframe src="../assets/finalprojectreport.pdf" width="100%" height="600px"></iframe>
