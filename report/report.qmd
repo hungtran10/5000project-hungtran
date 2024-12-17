@@ -75,3 +75,5 @@ These are just examples, you can use any structure that is suitable for your pro
 
 ```{html}
 <iframe src="../assets/finalprojectreport.pdf" width="100%" height="600px"></iframe>
+
+![Project Report](../assets/finalprojectreport.pdf)
