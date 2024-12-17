@@ -2,13 +2,18 @@
 title: "Introduction"
 ---
 
-## Introduction to My Project 
+# Clicks vs. Bricks: Demographic and Financial Drivers of Shopping Preferences
+
+### Introduction
+**Welcome to my project exploring the dynamics of modern shopping preferences: online vs. in-store. This project explores the demographic and financial factors that influence how customers choose to shop, using  data analysis and machine learning models. From identifying that higher-income customers gravitate toward online platforms to uncovering factors associated with online shopping preferences and other factors, these insights are designed to help retailers adapt and thrive in an evolving marketplace. Discover how data-driven strategies can bridge the gap between clicks and bricks, creating a better understanding of better reaching the target audience.**
 
 ### Research Topic: Customer Preferences for Online v. In-Person Shopping
 
-**Why I was Interested:** In the wake of economic and political events in from 2023 up until the end of 2024, I have been interested in economics and the potential impact of policies on the cost-of-living for everyday Americans. Additionally, being around the holiday season, I want to investigate the retail shopping sector. In particular, I would like to how businesses can utilize customer information to better tailor their channel experiences. Thus, goods in this context pertain to tangible goods in retail. Please continue exploring this website to learn how I conducted my research and the insights that I gathered. 
+**Why I was Interested:** In the wake of economic and political events in from 2023 up until the end of 2024, I have been interested in economics and the potential impact of policies on the cost-of-living for everyday Americans. Additionally, being around the holiday season, I want to investigate the retail shopping sector. Thus, goods in this context pertain to tangible goods in retail. As a person who occasionally online shops, I see the merits of in-person shopping, too. 
 
-**Why You Keep Reading:** If you're interested in learning how you can turn customer data into actionable insights, and develop business strategies. 
+For this project, I would like understand to how businesses can utilize customer information to better tailor their channel experiences. Please continue exploring this website to learn how I conducted my research and the insights that I gathered. 
+
+**Why You Should Keep Reading:** If you're interested in learning how you can turn customer data into actionable insights, and develop business strategies. 
 
 ### Preliminary research questions:
   - How do customer demographics (age, gender, race, education level, income, etc.) influence one's preference for in-store or online shopping?
@@ -26,7 +31,7 @@ These research questions will be refined based on the data that becomes availabl
 
 **Where to Go Next:** Please refer to the 'Technical Details' tab for the in-depth analysis of my code. If you want to get straight to the insights, click on the 'Report' tab.
 
-### Literature review
+### Literature Review
 
 I conducted a literature review of five papers to better understand the studies that have been conducted for topics surrounding in-store vs. online shopping, hoping to see if the existing knowledge can help guide my project. Here are their insights.
 
@@ -61,15 +66,3 @@ I conducted a literature review of five papers to better understand the studies 
    -  Key findings:
      -  The number of children in the household was associated with more frequent retail, grocery, and food deliveries. Age was negatively associated with both delivery and in-store walking trip. Having a smartphone increased the likelihood of both delivery and in-store shopping. @kim_be_2021
      -  The study found that online shopping and in-store shopping for retail, grocery, and food are interconnected, and that factors affecting deliveries vary by the type of delivery (retail, grocery or food). The results also showed that underrepresented races and elderly people are less likely to receive all three delivery services. @kim_be_2021
-
-## Additional Ideas for things to include 
-
-- - - Audience- - : Who is this for? Data professionals, businesses, researchers, or curious readers.
-- - - Headline- - : A captivating title introducing the data science theme (e.g., "Unlocking Insights Through Data Stories").
-- - - Introduction- - : A brief, engaging overview of what the website offers (e.g., data-driven stories, insights, or case studies).
-- - - Questions You Are Addressing- - : What do you hope to learn?
-- - - Motivation- - : Explain why this topic matters, highlighting the importance of data in solving real-world problems.
-- - - Key Topics- - : List the main focus areas (e.g., machine learning, data visualization, predictive modeling).
-- - - Use Cases/Examples- - : A brief teaser of compelling stories or case studies you’ve worked on.
-- - - Call to Action- - : Invite visitors to explore the content, follow along, or contact you for more information.
-- - - Visual/Infographic- - : Add a simple graphic or visual element to make the page more dynamic.

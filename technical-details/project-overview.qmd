@@ -1,4 +1,4 @@
-# Overview
+# Project Overview
 
 - **Goals**: The goal of this project is to extract as many insights out of the data as possible about customer's preferences for online vs. in-person shopping through various modeling techniques. I want to be able to learn how to use data collected to train models to predict outcomes and potentially have an impact on how business conduct strategic decision-making. 
 - **Motivation**: I am motivated to help businesses have a better understanding of their customers' shopping habits and provide some background information for customers who are more inclined to shop online. More specifically, I want businesses to be more aware of how they can enhance customer segmentation for channel preference. Doing so allows businesses to identify which customer segments prefer one channel over the other, and changes can be made tailor delivery channels more effectively.
@@ -48,7 +48,7 @@ This is a data science project so I will be utilizing key stages in the data sci
    - Overall, the project showcased strong predictive accuracy, validating the importance of demographic and financial features in understanding shopping preferences.
 
 3. **Business Implications**:  
-   - The insights enable businesses to optimize customer segmentation, inventory allocation, and marketing strategies.  
+   - These insights enable businesses to improve customer segmentation, inventory allocation, and marketing strategies.  
    - Predictive modeling allows for data-driven personalization, improving customer satisfaction and driving customer lifetime value.
 
 ### Potential Improvements and Refinements
@@ -79,5 +79,5 @@ This is a data science project so I will be utilizing key stages in the data sci
 
 3. **Test Location and Segment-Specific Strategies**:  
    - Design A/B tests to evaluate how insights about online vs. in-person preferences translate into actionable marketing strategies.  
-   - For instance, test the effectiveness of location-specific online promotions for high-income customers or in-store campaigns for groups preferring physical shopping.
+   - For instance, test the effectiveness of location-specific online promotions for high-income customers or in-store campaigns for segments preferring physical shopping.
 
