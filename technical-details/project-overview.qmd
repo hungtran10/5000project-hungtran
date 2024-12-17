@@ -7,44 +7,39 @@
 
 ### Data Source
 **Source:** Public use microdata (2023) from Consumer Expenditure Survey Data from the U.S. Bureau of Labor Statistics. 
-The 2023 data can be accessed at the URL: https://www.bls.gov/cex/pumd_data.htm#csv.  
+The 2023 data can be accessed at the [URL](https://www.bls.gov/cex/pumd_data.htm#csv).  
 
 
 ## Project Workflow
-This is a data science project so I will be utilizing key stages in the data science pipeline to get to the conclusions that I am looking for. I will gather data, clean it. Then, I will conduct exploratory data analysis by identifying key statistics and data visualizations to create preliminary insights on the customers. Next, I will conduct unsupervised learning where I will identify clusters based on the  variables in the data. Lastly, I will implement predictive modeling to test regression, binary classification and multi-class classification models' abilities to predict the outcomes in my data. 
+This is a data science project so I will be utilizing key stages in the data science pipeline to get to the conclusions that I am looking for. First, I will gather data and clean it. Then, I will conduct exploratory data analysis by identifying key statistics and data visualizations to create preliminary insights on the customers. Next, I will conduct unsupervised learning where I will identify clusters based on the  variables in the data. Lastly, I will implement predictive modeling to test regression, binary classification and multi-class classification models' abilities to predict the outcomes in my data. 
 
 ## Hypotheses
 
 - Certain race groups, married people and those who work full-time in the last year are more likely to shop online.
 - The more educated individuals, e.g. people with bachelor's, master's and beyond, are most likely to shop online and spend more due to their higher earning power provided by their education.
 - One's annual online shopping expense can be predicted by their income level. 
+- Younger people are more likely to shop onlmine. 
 
 ## Challenges
 
 - **Finding data:** Given the nature of this topic, it took me a while to locate publicly available data.
 - **Data cleaning:** The data came in a number of CSV files organized in a star schema meaning that is composed of a single, central set of fact tables that is surrounded by dimension tables. Moreover, all the variables per file had a unique naming system and encoded so I had to refer to a data dictionary to decode them.
 - **Data Limitations:** Although I had around 39,000 rows in the cleaned dataset, it was imbalanced between individuals who have shopped online in 2023 vs. those who did not. This made predictive modeling more challenging as I had to do resampling to achieve a more balanced dataset. 
-- **Strong Predictive Power:** The strong predictive performance of my models were suprising, and this raises questions about overfitting.
-
-## Benchmarks
-
-- Compare your findings to relevant research, industry benchmarks, or intuitive expectations, if applicable.
+- **Strong Predictive Power:** The strong predictive performance of my models in the classification tasks were suprising, and this raises questions about overfitting.
 
 ## Conclusion and Future Steps
 
-- Summarize the key technical points and outcomes of the project.
-- Suggest potential improvements or refinements to this part of the project.
-- Based on the results, provide actionable recommendations for further research or optimization efforts.
 ### Key Technical Insights and Outcomes
 
 1. **Data Analysis and Insights**:  
-   - Key predictors included income, education, race, and marital status. For example, higher-income individuals and those with advanced education levels were more likely to shop online, whereas other demographics showed a preference for in-person shopping.  
-   - Spending patterns also varied across racial groups, with Asians spending significantly more online, hinting at cultural or access-related trends.  
+   - Key predictors included income, education, race, and marital status. For example, higher-income individuals and those with advanced education degrees were more likely to shop online, whereas other demographics showed a preference for in-person shopping.  
+   - Spending patterns also varied across racial groups, with Asians spending significantly more online, hinting at possible cultural or access-related trends.  
 
 2. **Modeling Outcomes**:  
-   - Models like XGBoost and Random Forest achieved perfect performance metrics (AUC = 1), demonstrating their ability to capture non-linear relationships and interactions between features.  
+   - Models like XGBoost and Random Forest achieved perfect performance metrics, demonstrating their ability to capture non-linear relationships and interactions between features.  
+   - Decision Trees algorithms were also a top performer, but they are limited their proneness to overfitting, limiting generalizability. 
    - Logistic Regression provided interpretability but was slightly less robust for capturing complex patterns in the data.  
-   - Linear models like LinearSVC exhibited sensitivity to class imbalances, with reduced recall for minority groups.  
+   - Linear models like LinearSVC exhibited sensitivity to class imbalances, with reduced recall for minority classes.  
    - Overall, the project showcased strong predictive accuracy, validating the importance of demographic and financial features in understanding shopping preferences.
 
 3. **Business Implications**:  
@@ -57,7 +52,7 @@ This is a data science project so I will be utilizing key stages in the data sci
    - Models like LinearSVC struggled with recall for minority groups due to imbalanced classes. Techniques like SMOTE (Synthetic Minority Over-sampling Technique) or cost-sensitive learning could enhance performance. Alternatively, more robust data can address this issue.
 
 2. **Incorporate More Types of Data**:  
-   - Explore additional features, such as behavioral data (e.g., shopping frequency, preferred categories), to improve predictions further.  
+   - Explore additional features, such as behavioral data (e.g., shopping frequency, preferred categories) to improve further predictions.  
    - Incorporate geospatial variables to understand regional preferences for online vs. in-person shopping.
 
 3. **Validation Across Broader Datasets**:  
@@ -79,5 +74,5 @@ This is a data science project so I will be utilizing key stages in the data sci
 
 3. **Test Location and Segment-Specific Strategies**:  
    - Design A/B tests to evaluate how insights about online vs. in-person preferences translate into actionable marketing strategies.  
-   - For instance, test the effectiveness of location-specific online promotions for high-income customers or in-store campaigns for segments preferring physical shopping.
+   - For instance, test the effectiveness of customer-specific online promotions for high-income shoppers or in-store campaigns for segments preferring physical shopping.
 
