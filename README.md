@@ -1,4 +1,4 @@
-# 2024-dsan-5000-project
+# DSAN 5000: Class Final Project
 Project repository 
 
 Project Purpose: Extract as many insights out of the data as possible about customer's preferences for online vs. in-person shopping through various modeling techniques using Customer Expenditure Survey Data. Use data collected to train models to predict outcomes and potentially have an impact on how business conduct strategic decision-making. 
