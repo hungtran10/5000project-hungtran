@@ -33,11 +33,12 @@ This is a data science project so I will be utilizing key stages in the data sci
 
 1. **Data Analysis and Insights**:  
    - Key predictors included income, education, race, and marital status. For example, higher-income individuals and those with advanced education degrees were more likely to shop online, whereas other demographics showed a preference for in-person shopping.  
-   - Spending patterns also varied across racial groups, with Asians spending significantly more online, hinting at possible cultural or access-related trends.  
+   - Spending patterns also varied across racial groups, with Asians spending significantly more online, hinting at possible  trends. 
 
 2. **Modeling Outcomes**:  
-   - Models like XGBoost and Random Forest achieved perfect performance metrics, demonstrating their ability to capture non-linear relationships and interactions between features.  
-   - Decision Trees algorithms were also a top performer, but they are limited their proneness to overfitting, limiting generalizability. 
+   - Models like XGBoost and Random Forest achieved perfect performance metrics when predicting education and income level, demonstrating their ability to capture non-linear relationships and interactions between features.  
+   - Decision Trees algorithms were also a top performer, but they are limited by their proneness to overfitting, reducing generalizability. 
+     - Decision Tree Regressor was the best performing model when predicting online shopping expenditure from total expenses and income.
    - Logistic Regression provided interpretability but was slightly less robust for capturing complex patterns in the data.  
    - Linear models like LinearSVC exhibited sensitivity to class imbalances, with reduced recall for minority classes.  
    - Overall, the project showcased strong predictive accuracy, validating the importance of demographic and financial features in understanding shopping preferences.
@@ -49,7 +50,7 @@ This is a data science project so I will be utilizing key stages in the data sci
 ### Potential Improvements and Refinements
 
 1. **Addressing Class Imbalances**:  
-   - Models like LinearSVC struggled with recall for minority groups due to imbalanced classes. Techniques like SMOTE (Synthetic Minority Over-sampling Technique) or cost-sensitive learning could enhance performance. Alternatively, more robust data can address this issue.
+   - Techniques like SMOTE (Synthetic Minority Over-sampling Technique) and random oversampling did not seem to work so more methods should be tested. Alternatively, more robust data can address this issue.
 
 2. **Incorporate More Types of Data**:  
    - Explore additional features, such as behavioral data (e.g., shopping frequency, preferred categories) to improve further predictions.  
@@ -74,5 +75,5 @@ This is a data science project so I will be utilizing key stages in the data sci
 
 3. **Test Location and Segment-Specific Strategies**:  
    - Design A/B tests to evaluate how insights about online vs. in-person preferences translate into actionable marketing strategies.  
-   - For instance, test the effectiveness of customer-specific online promotions for high-income shoppers or in-store campaigns for segments preferring physical shopping.
+   - For instance, test the effectiveness of customer-specific online promotions for high-income shoppers or in-store campaigns for customers preferring in-store shopping.
 
