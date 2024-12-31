@@ -15,12 +15,12 @@ website:
     left:
       - href: index.qmd
         text: Home
+      - href: project-overview.qmd
+        text: Project Overview
       - href: report/report.qmd
         text: Report
       - text: "Technical Details"
         menu: 
-          - text: Project Overview
-            href: technical-details/project-overview.qmd
           - text: Data Collection
             href: technical-details/data-collection/main.ipynb 
           - text: Data Cleaning
@@ -31,8 +31,6 @@ website:
             href: technical-details/unsupervised-learning/main.ipynb 
           - text: Supervised Learning
             href: technical-details/supervised-learning/main.ipynb 
-          - text: LLM usage Log
-            href: technical-details/llm-usage-log.qmd
 
 format:
   html:
