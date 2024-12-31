@@ -15,8 +15,6 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - href: aboutme.qmd
-        text: About Me
       - href: report/report.qmd
         text: Report
       - text: "Technical Details"
