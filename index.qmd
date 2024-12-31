@@ -1,13 +1,14 @@
 ---
 title: "Clicks vs. Bricks: Demographic and Financial Drivers of Shopping Preferences"
 ---
+!(assets/online-vs-offline-shopping.jpg)
 
 ### Introduction
 Welcome to my project exploring the dynamics of modern shopping preferences: online vs. in-store. This project explores the demographic and financial factors that influence how customers choose to shop, using  data analysis and machine learning models. From identifying that higher-income customers gravitate toward online platforms to uncovering factors associated with online shopping preferences and other factors, these insights are designed to help retailers adapt and thrive in an evolving marketplace. Discover how data-driven strategies can bridge the gap between clicks and bricks, creating a better understanding of better reaching the target audience.
 
 ### Research Topic: Customer Preferences for Online v. In-Person Shopping
 
-**Why I was Interested:** In the wake of economic and political events in from 2023 up until the end of 2024, I have been interested in economics and the potential impact of policies on the cost-of-living for everyday Americans. Additionally, being around the holiday season, I want to investigate the retail shopping sector. Thus, goods in this context pertain to tangible goods in retail. As a person who occasionally online shops, I see the merits of in-person shopping, too. 
+**Why I was Interested:** In the wake of economic and political events in from 2023 up until the end of 2024, I have been interested in economics and the potential impact of policies on the cost-of-living for everyday Americans. Additionally, being around the holiday season and its relationship with consumerism, I want to investigate the retail shopping sector. Thus, goods in this context pertain to tangible goods in retail. As a person who occasionally online shops, I see the merits of in-person shopping, too. 
 
 For this project, I would like understand to how businesses can utilize customer information to better tailor their channel experiences. Please continue exploring this website to learn how I conducted my research and the insights that I gathered. 
 
