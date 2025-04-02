@@ -5,12 +5,6 @@ dir1=${PWD}
 # START FRESH
 rm -rf 5000-Project;
 
-# BUILD WEBSITE
-#quarto render
-
-# CLEAN UP 
-#cd 5000-Project; for i in $(find  ./ -name .DS_Store); do rm $i; done; cd "$dir1"
-
 # SET CORRECT PERMISSIONS FOR ALL FILES 
 for i in $(find 5000-Project -type f); do chmod 644 $i; done
 for i in $(find 5000-Project -type d); do chmod 755 $i; done
@@ -42,9 +36,6 @@ else
     echo NOT PUSHING TO GTIHUB!
 fi
 
-
-#!/bin/bash
-
 # Clean-up Step: Remove any existing build
 echo "Cleaning up old builds..."
 rm -rf 5000-Project
@@ -75,21 +66,9 @@ read -p "Do you want to push the website to the server? (y/n): " choice
 if [[ "$choice" == [Yy]* ]]; then
     # Push the website to the server
     echo "Pushing the website to the server..."
-    #rsync -avz --delete 5000-Project/ mt1584@georgetown.edu:/path/to/your/domains/folder
-    scp -r 5000-Project htrangeo@htran.georgetown.domains:/home/htrangeo/public_html/
+    rsync -avz ./ htrangeo@138.197.74.192:/home/htrangeo/public_html/
+    #scp -r 5000-Project htrangeo@htran.georgetown.domains:/home/htrangeo/public_html/
     echo "Website pushed successfully."
 else
     echo "Skipping deployment."
 fi
-
-
-
-
-# PUSH WEBSITE TO GU DOMAINS 
-# printf 'Would you like to push to GU domains? (y/n)? '
-# read answer
-# if [ "$answer" != "${answer#[Yy]}" ] ;then 
-#     rsync -alvr --delete _site/* jfhgeorg@gtown.reclaimhosting.com:/home/jfhgeorg/public_html/dsan-5000/
-# else
-#     echo NOT PUSHING TO GU DOMAINS!
-# fi
